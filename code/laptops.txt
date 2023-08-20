@@ -1,0 +1,6 @@
+Brand: Dell
+Model: XPS 13
+Processor: Intel Core i7
+RAM: 16GB
+Storage: 512GB SSD
+Price: $1299.99

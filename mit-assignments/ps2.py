@@ -1,4 +1,3 @@
-totals = [50, 51, 52, 53, 54, 55]
 def combinations(total):
     list = []
     
@@ -9,10 +8,13 @@ def combinations(total):
                     list.append((a, b, c))
     print(list)
     return list
-    
-for x in totals:
-    list = combinations(x)
-    print(f"Combinations for {x} McNuggets:")
-    for n in list:
-        print(f"6-pack x {n[0]}, 9-pack x {n[1]}, 20-pack x {n[2]}")
-    print("--------------------------------------")
+
+if __name__ == "__main__":
+    totals = [50, 51, 52, 53, 54, 55 ,56]
+
+    for x in totals:
+        list = combinations(x)
+        print(f"Combinations for {x} McNuggets:")
+        for n in list:
+            print(f"6-pack x {n[0]}, 9-pack x {n[1]}, 20-pack x {n[2]}")
+        print("--------------------------------------")
