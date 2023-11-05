@@ -4,9 +4,7 @@
 # Time: 
 #
 
-import random 
-import words
-import string
+import random
 
 VOWELS = 'aeiou'
 CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
@@ -31,7 +29,7 @@ def load_words():
     """
     print ("Loading word list from file...")
     # inFile: file
-    inFile = open(WORDLIST_FILENAME, 'r', 0)
+    inFile = open(WORDLIST_FILENAME, 'r')
     # wordlist: list of strings
     wordlist = []
     for line in inFile:
@@ -87,7 +85,6 @@ def get_word_score(word, n):
         score += 50  
 
     return score
-    # TO DO ...
 
 #
 # Make sure you understand how this function works and what it does!
@@ -125,7 +122,7 @@ def deal_hand(n):
     returns: dictionary (string -> int)
     """
     hand={}
-    num_vowels = n / 3
+    num_vowels = int(n / 3)
     
     for i in range(num_vowels):
         x = VOWELS[random.randrange(0,len(VOWELS))]
@@ -156,8 +153,6 @@ def update_hand(hand, word):
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
     """
-    # TO DO ...
-
     duplicaate_hand = hand.copy()
 
     for letter in word:
@@ -183,8 +178,6 @@ def is_valid_word(word, hand, word_list):
     hand: dictionary (string -> int)
     word_list: list of lowercase strings
     """
-    # TO DO ...
-
     duplicate_hand = hand.copy()
 
     if word not in word_list:
@@ -229,29 +222,28 @@ def play_hand(hand, word_list):
       hand: dictionary (string -> int)
       word_list: list of lowercase strings
     """
-    def play_hand(hand, word_list):
-        total_score = 0 
+    total_score = 0 
 
-        while calculate_hand_len(hand) > 0:
-            print("Current Hand:", end=" ")
-            display_hand(hand) 
+    while calculate_hand_len(hand) > 0:
+        print("Current Hand:", end=" ")
+        display_hand(hand) 
 
-            word = input("Enter a word, or a . to  finish").strip().lower()
+        word = input("Enter a word, or a . to  finish").strip().lower()
 
-            if word == ".":
-                break 
+        if word == ".":
+            break 
 
-            if is_valid_word(word, hand, word_list):
-                word_score = get_word_score(word, calculate_hand_len(hand))
-                total_score += word_score
-                print(f'"{word}" earned {word_score} points. Total: {total_score} points')
-                
-                hand = update_hand(hand, word)
-            else:
-                print("Invalid word")
-        
+        if is_valid_word(word, hand, word_list):
+            word_score = get_word_score(word, calculate_hand_len(hand))
+            total_score += word_score
+            print(f'"{word}" earned {word_score} points. Total: {total_score} points')
+            
+            hand = update_hand(hand, word)
+        else:
+            print("Invalid word")
+    
 
-        print("Total score=", total_score)
+    print("Total score=", total_score)
 
 
 def calculate_hand_len(hand):
@@ -311,8 +303,3 @@ def play_game(word_list):
 if __name__ == '__main__':
     word_list = load_words()
     play_game(word_list)
-
-
-hand = {'a': 1, 'p': 2, 'l': 1, 'e': 1, 's': 1}
-word_list = ['apple', 'apples', 'seal', 'peel']
-play_hand(hand,word_list)
