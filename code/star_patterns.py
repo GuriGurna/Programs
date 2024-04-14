@@ -13,7 +13,7 @@ Right_hand_pyramid(5)
 
 
 def Inverted_hand_pyramid(rows):
-    for i in range(rows, 0 ,-1):
-        print('*' * i)
+    for i in range(3,0 ,-1): 
+        print('0' * 3)
 
-Inverted_hand_pyramid(5)
+Inverted_hand_pyramid(3)
