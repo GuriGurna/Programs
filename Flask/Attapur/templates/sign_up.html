@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign_up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 30px;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius:5px ;
+        }
+
+        input[type=text],textarea{
+            width: 95%;
+            padding: 20px;
+            margin: 20px;
+            box-sizing: border-box;
+            display: flex;
+            border: 1px #ccc;
+            
+        }
+
+        input[type=submit]{
+            margin: 20px;
+            padding: 15px;
+            background-color: #04AA6D;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+    </style>
+
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <form method="post" action="data.php">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name ='fname' placeholder="First name...">
+            l<label for="lname">Last Name:</label>
+            <input type="text" id="lname" name= 'lname' placeholder="Last name...">
+            <label for="fatname">Father Name:</label>
+            <input type="text" id="fatname" name ='faname' placeholder="Father name...">
+            <label for="Email id">Email ID</label>
+            <input type="text" id="Email id" name= 'email' placeholder="guri@gurna.com">
+            <label for="Age">Age:</label>
+            <input type="text" id="Age" name = 'age' placeholder="18">
+            <label for="info">Tell about yourself</label>
+            <textarea  id="info" name = 'info' ></textarea>
+
+            <input type="submit" name="submit">
+        </form>
+        
+
+    </div>
+
+    {% include 'footer.html' %}
+</body>
+</html>
